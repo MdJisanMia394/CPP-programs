@@ -7,21 +7,17 @@ int main(){
     while(t--){
         double num;
         cin>>num;
-        int cnt=0;
+        int cnt = 0;
         while(num>=0){
             num /= 2;
+
+            if(num<=1){
+                break;
+            }
             cnt++;
         }
-        cout<<cnt<<" days"<<endl;
+        cout<<cnt+1<<" days"<<endl;
     }
 
-
-
-
-
-
-
-
-
-    return 0;
+   return 0;
 }
