@@ -1,30 +1,36 @@
 #include<iostream>
-#include<algorithm>
 using namespace std;
 
 int main(){
-
-    int row,col;
-    cin>>row>>col;
-    int arr[row][col];
-    for(int i=0;i<row;row++){
-        for(int j=0;j<col;j++){
-            cin>>arr[i][j];
+    int N,M;
+    cin>>N>>M;
+    int a[N],b[M];
+    for(int i=0;i<N;i++){
+        cin>>a[i];
+    }
+    for(int i=0;i<M;i++){
+        cin>>b[i];
+    }
+    int current_index=-1;
+    for(int b_index=0;b_index<M;b_index++){
+        int next_index=-1;
+        for(int a_index=current_index+1;a_index<N;a_index++){
+            if(a[a_index]==b[b_index]){
+                next_index = a_index;
+                break;
+            }
         }
-    }
-
-    for(int i=0;i<row;i++){
-        reverse(arr+i,arr+col);
-    }
-     for(int i=0;i<row;row++){
-        for(int j=0;j<col;j++){
-           cout<<arr[i][j];
+        if(next_index==-1){
+            cout<<"NO\n";
+            return 0;
         }
-        cout<<endl;
+        else{
+            current_index=next_index;
+        }
+
     }
 
-
-
+    cout<<"YES\n";
 
 
 
